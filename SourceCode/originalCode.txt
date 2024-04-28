@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            width: calc(100% - 22px);
+        }
+        .buttons {
+            grid-column: 1 / span 2;
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .buttons button:hover {
+            background-color: #45a049;
+        }
+        .buttons button[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+        }
+        .previous-names-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            grid-column: 1 / span 2;
+        }
+        .previous-names-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+        }
+        .previous-names-container .form-group {
+            display: none;
+        }
+        .previous-names-container.visible .form-group {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Personal Details</h2>
+        <form action="insert_employee.php" method="post">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="middleName">Middle Name:</label>
+                <input type="text" id="middleName" name="middleName">
+            </div>
+            <div class="form-group">
+                <label for="familyName">Family Name:</label>
+                <input type="text" id="familyName" name="familyName" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group" id="differentNameFields">
+                <label>Have you ever been known by a different name? If YES, please enter them below:</label>
+                <div>
+                    <label for="differentNameYes">Yes</label>
+                    <input type="radio" id="differentNameYes" name="differentNameOption" value="yes" onchange="togglePreviousNames()">
+                    <label for="differentNameNo">No</label>
+                    <input type="radio" id="differentNameNo" name="differentNameOption" value="no" checked onchange="togglePreviousNames()">
+                </div>
+            </div>
+            <div class="previous-names-container" id="previousNamesContainer">
+                <div class="form-group">
+                    <label for="pFirstName">Previous First Name:</label>
+                    <input type="text" id="pFirstName" name="pFirstName">
+                </div>
+                <div class="form-group">
+                    <label for="pMiddleName">Previous Middle Name:</label>
+                    <input type="text" id="pMiddleName" name="pMiddleName">
+                </div>
+                <div class="form-group">
+                    <label for="pFamilyName">Previous Family Name:</label>
+                    <input type="text" id="pFamilyName" name="pFamilyName">
+                </div>
+                <div class="form-group">
+                    <label for="dateOfChange">Date of Change:</label>
+                    <input type="date" id="dateOfChange" name="dateOfChange">
+                </div>
+            </div>
+        </form>
+        <div class="buttons">
+            <button type="submit">Submit</button>
+            <button type="button" id="nextButton">Next</button>
+        </div>
+    </div>
+
+    <script>
+        function togglePreviousNames() {
+            var differentNameYes = document.getElementById("differentNameYes");
+            var previousNamesContainer = document.getElementById("previousNamesContainer");
+
+            if (differentNameYes.checked) {
+                previousNamesContainer.classList.add("visible");
+            } else {
+                previousNamesContainer.classList.remove("visible");
+            }
+        }
+    </script>
+</body>
+</html>
