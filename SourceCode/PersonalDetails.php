@@ -108,89 +108,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        h2 {
-            margin-bottom: 20px;
-        }
-        form {
-            text-align: left;
-        }
-        .form-group {
-            display: inline-block;
-            width: calc(50% - 10px);
-            margin-bottom: 20px;
-        }
-        label {
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="date"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            margin-top: 5px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .buttons button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .buttons button:hover {
-            background-color: #45a049;
-        }
-        .buttons button[type="submit"] {
-            background-color: #4caf50;
-            color: #fff;
-        }
-        .previous-names-header {
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .previous-names-container {
-            display: none; /* Hide the container initially */
-            width: 100%;
-            text-align: left;
-        }
-        .previous-names-container .form-group {
-            width: calc(50% - 10px);
-            margin-bottom: 20px;
-        }
-        .message {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #dff0d8;
-            border: 1px solid #d6e9c6;
-            color: #3c763d;
-            border-radius: 3px;
-        }
-    </style>
+    <link href="personaldetailsForm-style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -204,10 +122,10 @@ $conn->close();
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($title); ?>" required>
             </div>
-            <div class="form-group">
+            <div= class="form-group">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName" value="<?php echo htmlspecialchars($firstName); ?>" required>
-            </div>
+            </div=>
             <div class="form-group">
                 <label for="middleName">Middle Name:</label>
                 <input type="text" id="middleName" name="middleName" value="<?php echo htmlspecialchars($middleName); ?>">
@@ -222,7 +140,7 @@ $conn->close();
             </div>
             <div class="form-group">
                 <label>Have you ever been known by a different name? If YES, please enter them below:</label>
-                <div>
+                <div class="margintop">
                     <input type="checkbox" id="differentNameOptionYes" name="differentNameOption" value="yes" <?php if(isset($differentNameOption) && $differentNameOption === 'yes') echo 'checked'; ?>>
                     <label for="differentNameOptionYes">Yes</label>
                 </div>
@@ -231,7 +149,7 @@ $conn->close();
                     <label for="differentNameOptionNo">No</label>
                 </div>
             </div>
-            <div class="previous-names-header">Previous Names</div>
+            <div class="previous-names-header"><h2>Previous Names</h2></div>
             <div class="previous-names-container" id="previousNamesContainer">
                 <div class="form-group">
                     <label for="pFirstName">Previous First Name:</label>
