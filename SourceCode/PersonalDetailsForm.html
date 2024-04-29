@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee Details</title>
+
+
  <link href="personaldetailsForm-style.css" rel="stylesheet">
+
 </head>
 <body>
     <div class="container">
@@ -12,6 +15,21 @@
         <form action="PersonalDetails.php" method="post">
             <div class="form-group">
                 <label for="title">Title:</label>
+
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="middleName">Middle Name:</label>
+                <input type="text" id="middleName" name="middleName">
+            </div>
+            <div class="form-group">
+                <label for="familyName">Family Name:</label>
+       
+
                 <input type="text" id="title" name="title" placeholder="Title" required>
             </div>
             <div class="form-group">
@@ -25,11 +43,13 @@
             <div class="form-group">
                 <label for="familyName">Family Name:</label>
                 <input type="text" id="familyName" name="familyName" placeholder="Family Name" required>
+
             </div>
             <div class="form-group">
                 <label for="dob">Date of Birth:</label>
                 <input type="date" id="dob" name="dob" required>
             </div>
+
             <div class="previous-names-header"><h2>Previous Names</h2></div>
             <div class="previous-names-container">
                 <label>Have you ever been known by a different name? If YES, please enter them below:</label>
@@ -47,6 +67,7 @@
                     </div>
                 </div>
                 <div class="form-group margintop">
+
                     <label for="pFirstName">Previous First Name:</label>
                     <input type="text" id="pFirstName" name="pFirstName">
                 </div>
