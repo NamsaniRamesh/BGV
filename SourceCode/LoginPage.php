@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Display error message if present
         if (isset($_SESSION['message'])) {
             echo '<p class="error-message">' . $_SESSION['message'] . '</p>';
-            unset($_SESSION['message']); // Clear the message after displaying it
+            unset($_SESSION['message']); // Clear the message after displaying it's
         }
         ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
