@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     // Redirect to LoginPage.php
     header("Location: LoginPage.php");
-    exit; // Stop further execution
+    exit; // Stop further executionff
 }
 // Check if the user ID is set in the session
 if (isset($_SESSION['user_id'])) {
