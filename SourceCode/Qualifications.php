@@ -169,7 +169,7 @@ $conn->close();
             </div>
             <div class="row mb20">
                     <div class="button-container">
-                    <button>+ Add Another Qualifications</button>
+                    <button> + </button>
                     </div>
                 </div>
             <div class="qualification-2">
@@ -201,12 +201,15 @@ $conn->close();
             </div>
             <div class="row mb20">
                     <div class="button-container">
-                    <button>+ Add Another Qualifications</button>
+                    <button> + </button>
                     </div>
                 </div>
             <div class="button-container">
                 <button type="submit">Submit</button>
-                <button type="button" onclick="window.location.href='LogOut.php';">Next</button>
+                <div>
+                <button type="button" id="previousButton" onclick="window.location.href='EmploymentHistory.php';">Previous</button>
+                <button type="button" id ="nextButton" onclick="window.location.href='LogOut.php';">Next</button>
+                </div>
             </div>
         </form>
 		<script>

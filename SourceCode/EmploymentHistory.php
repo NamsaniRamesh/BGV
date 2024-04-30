@@ -203,12 +203,15 @@ $conn->close();
             </div>
             <div class="row mb20">
                     <div class="button-container">
-                    <button>+ Add Another EmploymentHistory</button>
+                    <button> + </button>
                     </div>
                 </div>
             <div class="button-container">
                 <button type="submit">Submit</button>
-                <button type="button" class="next" onclick="window.location.href='Qualifications.php';">Next</button>
+                <div>
+                <button type="button" id="previousButton" onclick="window.location.href='AddressHistory.php';">Previous</button>
+                <button type="button" id ="nextButton" onclick="window.location.href='Qualifications.php';">Next</button>
+                </div>
             </div>
         </form>
 		<script>
