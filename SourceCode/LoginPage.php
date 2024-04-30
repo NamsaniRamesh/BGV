@@ -52,88 +52,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('pexels-ketut-subiyanto-4246182.jpg'); /* Background image from Unsplash */
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .login-container {
-            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-        h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        label {
-            display: flex;
-            align-items: center; /* Align text and icon vertically */
-            margin-bottom: 5px;
-            color: #666;
-        }
-        label img {
-            margin-right: 10px; /* Add space between icon and text */
-            width: 20px; /* Adjust icon size */
-        }
-        input[type="text"],
-        input[type="password"] {
-            width: calc(100% - 30px); /* Adjust input width to accommodate icon */
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-            background-color: transparent; /* Transparent background */
-            margin-bottom: 10px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: #4caf50; /* Highlight border color on focus */
-            outline: none;
-            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Highlight shadow on focus */
-        }
-        input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4caf50;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 16px;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        .error-message {
-            color: red;
-            margin-top: 10px;
-        }
-    </style>
+    <link href="login-style.css" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">
@@ -142,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Display error message if present
         if (isset($_SESSION['message'])) {
             echo '<p class="error-message">' . $_SESSION['message'] . '</p>';
-            unset($_SESSION['message']); // Clear the message after displaying it
+            unset($_SESSION['message']); // Clear the message after displaying it's
         }
         ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
