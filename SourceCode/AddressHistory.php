@@ -101,93 +101,10 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address History</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .sub-header {
-            font-size: 18px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .form-group {
-            margin-bottom: 20px;
-            width: 48%; /* Each field takes up nearly half of the container */
-            display: inline-block;
-            vertical-align: top;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="date"],
-        select {
-            width: calc(100% - 22px); /* Adjusting width to fit two fields in a row */
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-        .row::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-        .row .form-group {
-            float: left; /* Float the fields to place them side by side */
-            margin-right: 4%; /* Add a right margin for spacing */
-        }
-        .row .form-group:last-child {
-            margin-right: 0; /* Remove the right margin from the last field in each row */
-        }
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-        }
-        .button-container button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            //margin-right: 300px;            
-        }
-        .button-container button:hover {
-            background-color: #45a049;
-        }
-		.message {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #dff0d8;
-            border: 1px solid #d6e9c6;
-            color: #3c763d;
-            border-radius: 3px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-        }
-    </style>
+    <link href="personaldetailsForm-style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="container addresspage">
         <h2>Address History</h2>
 		<!-- Display the message if set -->
         <?php if(!empty($message)): ?>
@@ -220,6 +137,7 @@ $conn->close();
                          value="<?php echo htmlspecialchars($currentCountry); ?>">
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="form-group">
                         <label for="moved-in-date">Moved in:</label>
@@ -227,9 +145,14 @@ $conn->close();
                           value="<?php echo htmlspecialchars($movedInDate); ?>">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="button-container">
+                    <button>Add Another address</button>
+                    </div>
+                </div>
             </div>
             <div class="previous-addresses">
-                <div class="sub-header">Previous Addresses:</div>
+                <div class="sub-header"><h2>Previous Addresses:</h2></div>
                 <!-- You can add more fields for previous addresses here -->
                 <div class="row">
                     <div class="form-group">
@@ -260,6 +183,11 @@ $conn->close();
                         <label for="previous-moved-in-date">Moved in:</label>
                         <input type="date" id="previous-moved-in-date" name="previous-moved-in-date"
                          value="<?php echo htmlspecialchars($previousMovedInDate); ?>">
+                    </div>
+                </div>
+                <div class="row mb20">
+                    <div class="button-container">
+                    <button>Add Another address</button>
                     </div>
                 </div>
             </div>
