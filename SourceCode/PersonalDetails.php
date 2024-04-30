@@ -8,7 +8,7 @@ session_start();
      exit; // Stop further execution
  }
 
-// Database connection details
+// Database connection details Mahender
 $servername = "localhost:3306";
 $username = "root";
 $password = "";
