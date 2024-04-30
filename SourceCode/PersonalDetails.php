@@ -138,9 +138,9 @@ $conn->close();
                 <label for="dob">Date of Birth:</label>
                 <input type="date" id="dob" name="dob" value="<?php echo htmlspecialchars($dob); ?>" required>
             </div>
-            <div class="form-group">
+            <div class="form-group perviousabove">
                 <label>Have you ever been known by a different name? If YES, please enter them below:</label>
-                <div class="margintop">
+                <div class="">
                     <input type="checkbox" id="differentNameOptionYes" name="differentNameOption" value="yes" <?php if(isset($differentNameOption) && $differentNameOption === 'yes') echo 'checked'; ?>>
                     <label for="differentNameOptionYes">Yes</label>
                 </div>
@@ -151,6 +151,7 @@ $conn->close();
             </div>
             <div class="previous-names-header"><h2>Previous Names</h2></div>
             <div class="previous-names-container" id="previousNamesContainer">
+                
                 <div class="form-group">
                     <label for="pFirstName">Previous First Name:</label>
                     <input type="text" id="pFirstName" name="pFirstName" value="<?php echo htmlspecialchars($pFirstName); ?>">

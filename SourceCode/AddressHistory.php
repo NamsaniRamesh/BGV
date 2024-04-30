@@ -147,7 +147,7 @@ $conn->close();
                 </div>
                 <div class="row">
                     <div class="button-container">
-                    <button>Add Another address</button>
+                    <button> + </button>
                     </div>
                 </div>
             </div>
@@ -187,13 +187,16 @@ $conn->close();
                 </div>
                 <div class="row mb20">
                     <div class="button-container">
-                    <button>Add Another address</button>
+                    <button> + </button>
                     </div>
                 </div>
             </div>
             <div class="button-container">
                 <button type="submit">Submit</button>
-                <button type="button" onclick="window.location.href='EmploymentHistory.php';">Next</button>
+                <div>
+                <button type="button" id="previousButton" onclick="window.location.href='AdditionalPersonalDetails.php';">Previous</button>
+                <button type="button" id ="nextButton" onclick="window.location.href='EmploymentHistory.php';">Next</button>
+        </div>
             </div>
         </form>
 		<script>
