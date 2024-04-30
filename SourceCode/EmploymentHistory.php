@@ -119,100 +119,10 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employment History</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .sub-header {
-            font-size: 18px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .form-group {
-            margin-bottom: 20px;
-            width: 48%;
-            display: inline-block;
-            vertical-align: top;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="date"],
-        select {
-            width: calc(100% - 22px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-        .row::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-        .row .form-group {
-            float: left;
-            margin-right: 4%;
-        }
-        .row .form-group:last-child {
-            margin-right: 0;
-        }
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-        }
-        .button-container button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-right: 10px;
-        }
-        .button-container button:last-child {
-            margin-right: 0;
-        }
-        .button-container button:hover {
-            background-color: #45a049;
-        }
-        //.button-container button.next {
-        //    position: absolute;
-          //  right: 20px;
-        //}
-		.message {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #dff0d8;
-            border: 1px solid #d6e9c6;
-            color: #3c763d;
-            border-radius: 3px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-        }
-    </style>
+    <link href="personaldetailsForm-style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="container Emphistory">
         <h2>Employment History</h2>
 		<!-- Display the message if set -->
         <?php if(!empty($message)): ?>
@@ -291,6 +201,11 @@ $conn->close();
                       value="<?php echo htmlspecialchars($canContact); ?>">
                  </div>
             </div>
+            <div class="row mb20">
+                    <div class="button-container">
+                    <button>+ Add Another EmploymentHistory</button>
+                    </div>
+                </div>
             <div class="button-container">
                 <button type="submit">Submit</button>
                 <button type="button" class="next" onclick="window.location.href='Qualifications.php';">Next</button>

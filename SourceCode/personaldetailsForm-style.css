@@ -16,6 +16,7 @@ body {
 h2 {
     margin-bottom: 20px;
     color: #F29100;
+    text-align: center;
 }
 form {
     text-align: left;
@@ -84,6 +85,293 @@ input[type="date"] {
 .margintop {
     margin-top: 20px;
 }
+/** additionalpersonaldetails  page **/
+
+.additionalpersonaldetails form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.additionalpersonaldetails form .button-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+#logout {
+    background-color: #45a049;
+    border-radius: 28px;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+.additionalpersonaldetails .form-group {
+    flex: 0 0 calc(50% - 10px);
+    margin-bottom: 10px;
+}
+.additionalpersonaldetails label {
+    display: block;
+    margin-bottom: 5px;
+}
+.additionalpersonaldetails input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.additionalpersonaldetails .checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.additionalpersonaldetails .checkbox-label input[type="checkbox"] {
+    margin-right: 5px;
+    margin-top: 0px;
+}
+.additionalpersonaldetails .button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: 0px;
+    width: 100%; /* Make the button container full width */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    padding-right: 20px;
+}
+ input[type="submit"],
+#nextButton,
+#previousButton {
+    width: auto; /* Adjusted width */
+    padding: 8px; /* Decreased padding */
+    border: none;
+    border-radius: 3px;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px; /* Decreased font size */
+    margin-left: 5px; /* Added margin to separate buttons */
+    padding-right: 10px;
+}
+input[type="submit"]:hover,
+#nextButton:hover {
+    background-color: #45a049;
+}
+.additionalpersonaldetails .message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-top {
+    display: flex !important;
+    justify-content: end !important;
+}
+/** additionalpersonaldetails  page **/
+/*** Address History page ***/
+.sub-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.addresspage .form-group {
+    margin-bottom: 20px;
+    width: 48%; /* Each field takes up nearly half of the container */
+    display: inline-block;
+    vertical-align: top;
+}
+.addresspage label {
+    display: block;
+    margin-bottom: 5px;
+}
+.addresspage input[type="text"],
+.addresspage input[type="date"],
+.addresspage select {
+    width: calc(100% - 22px); /* Adjusting width to fit two fields in a row */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.addresspage .row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.addresspage .row .form-group {
+    float: left; /* Float the fields to place them side by side */
+    margin-right: 4%; /* Add a right margin for spacing */
+}
+.addresspage .row .form-group:last-child {
+    margin-right: 0; /* Remove the right margin from the last field in each row */
+}
+.addresspage .button-container {
+    display: flex;
+    justify-content: space-between;
+}
+.addresspage .button-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  /* margin-right: 300px;             */
+}
+.addresspage .button-container button:hover {
+    background-color: #45a049;
+}
+.addresspage .message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mb20 {
+    margin-bottom: 20px;
+}
+/*** Address History page ***/
+/*** Employment History Page ***/
+.Emphistory .sub-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.Emphistory .form-group {
+    margin-bottom: 20px;
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+}
+.Emphistory label {
+    display: block;
+    margin-bottom: 5px;
+}
+.Emphistory input[type="text"],
+.Emphistory input[type="date"],
+.Emphistory select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.Emphistory .row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.Emphistory .row .form-group {
+    float: left;
+    margin-right: 4%;
+}
+.Emphistory .row .form-group:last-child {
+    margin-right: 0;
+}
+.Emphistory .button-container {
+    display: flex;
+    justify-content: space-between;
+}
+.Emphistory .button-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+.Emphistory .button-container button:last-child {
+    margin-right: 0;
+}
+.Emphistory .button-container button:hover {
+    background-color: #45a049;
+}
+/* //.button-container button.next {
+//    position: absolute;
+  //  right: 20px;
+//} */
+.Emphistory .message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*** Employment History Page ***/
+
+    
+/** Qualifications page **/
+
+.qualifications .sub-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.qualifications .form-group {
+    margin-bottom: 20px;
+    width: 48%; /* Each field takes up nearly half of the container */
+    display: inline-block;
+    vertical-align: top;
+}
+.qualifications label {
+    display: block;
+    margin-bottom: 5px;
+}
+.qualifications input[type="text"],
+.qualifications input[type="date"] {
+    width: calc(100% - 22px); /* Adjusting width to fit two fields in a row */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.qualifications .button-container {
+    display: flex;
+    justify-content: space-between;
+}
+.qualifications .button-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.qualifications .button-container button:hover {
+    background-color: #45a049;
+}
+.qualifications .message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/** Qualifications page **/
+
 /* Mobile  version */
 @media screen and (min-device-width: 375px) and (max-device-width: 768px) { 
     .form-group {
@@ -98,5 +386,40 @@ input[type="date"] {
     display: flex;
     flex-direction: column;
   }
+  /** additionalpersonaldetails  page **/
+  .additionalpersonaldetails .form-group {
+    flex: 0 0 calc(100% - 10px);
+    margin-bottom: 10px;
+    }
+.additionalpersonaldetails .checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-direction: row;
+    }
+    /* Address page */
+    .addresspage .form-group {
+        margin-bottom: 20px;
+        width: calc(100% - 0px);
+        display: inline-block;
+        vertical-align: top;
+    }
+    /* Address Page */
+/*** Employment History Page ***/
+    .Emphistory .form-group {
+        margin-bottom: 20px;
+        width: 100%;
+        display: inline-block;
+        vertical-align: top;
+    }
+    /*** Employment History Page ***/
+    /** Qualifications page **/
+    .qualifications .form-group {
+        margin-bottom: 20px;
+        width: 100%; /* Each field takes up nearly half of the container */
+        display: inline-block;
+        vertical-align: top;
+    }
+    /** Qualifications page **/
 }
 /* Mobile  version */

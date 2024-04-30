@@ -96,6 +96,7 @@ if ($userId != 0) {
 
 // Close connection
 $conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -104,96 +105,19 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Personal Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .form-group {
-            flex: 0 0 calc(50% - 10px);
-            margin-bottom: 10px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .checkbox-label input[type="checkbox"] {
-            margin-right: 5px;
-        }
-        .button-container {
-            ddisplay: flex;
-            justify-content: flex-start; /* Align buttons to the right */
-            margin-top: 20px;
-            // width: 100%; /* Make the button container full width */
-            // box-sizing: border-box; /* Include padding and border in width calculation */
-            // padding-right: 20px;
-        }
-        input[type="submit"],
-        #nextButton,
-        #previousButton {
-            width: auto; /* Adjusted width */
-            padding: 8px; /* Decreased padding */
-            border: none;
-            border-radius: 3px;
-            background-color: #4caf50;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 14px; /* Decreased font size */
-            margin-left: 5px; /* Added margin to separate buttons */
-			padding-right: 10px;
-        }
-        input[type="submit"]:hover,
-        #nextButton:hover {
-            background-color: #45a049;
-        }
-        .message {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #dff0d8;
-            border: 1px solid #d6e9c6;
-            color: #3c763d;
-            border-radius: 3px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <link href="personaldetailsform-style.css" rel="stylesheet">
 </head>
-<body>
+<body class="additionalpersonaldetails">
+    
     <div class="container">
+    <div class="button-top">
+        <form method="post" >            
+            <button type="submit" name="logout" id="logout">Log Out</button>
+        </form>
+        </div>
         <h2>Additional Personal Details</h2>
+        
+        
         <!-- Display the message if set -->
         <?php if(!empty($message)): ?>
             <div class="message" id="successMessage"><?php echo $message; ?></div>
@@ -201,7 +125,7 @@ $conn->close();
         <form action="AdditionalPersonalDetails.php" method="post">
             <div class="form-group">
                 <label for="townOfBirth">Town of Birth:</label>
-                <input type="text" id="townOfBirth" name="townOfBirth" value="<?php echo htmlspecialchars($townOfBirth); ?>" required>
+                <input type="text" id="townOfBirth" name="townOfBirth"  value="<?php echo htmlspecialchars($townOfBirth); ?>" required>
             </div>
             <div class="form-group">
                 <label for="countryOfBirth">Country of Birth:</label>
@@ -209,11 +133,11 @@ $conn->close();
             </div>
             <div class="form-group">
                 <label for="nationality">Nationality:</label>
-                <input type="text" id="nationality" name="nationality" value="<?php echo htmlspecialchars($nationality); ?>" required>
+                <input type="text" id="nationality" name="nationality" placeholder="Nationality" value="<?php echo htmlspecialchars($nationality); ?>" required>
             </div>
             <div class="form-group">
-                <label for="mothersMaidenFamilyname">Mother’s Maiden Familyname:</label>
-                <input type="text" id="mothersMaidenFamilyname" name="mothersMaidenFamilyname" value="<?php echo htmlspecialchars($mothersMaidenFamilyname); ?>" required>
+                <label for="mothersMaidenFamilyname">Mother's Maiden Familyname:</label>
+                <input type="text" id="mothersMaidenFamilyname" name="mothersMaidenFamilyname" placeholder="Mother's Maiden Familyname" value="<?php echo htmlspecialchars($mothersMaidenFamilyname); ?>" required>
             </div>
             <div class="form-group checkbox-label">
                 <input type="checkbox" id="ukNationalInsuranceNumber" name="ukNationalInsuranceNumber" value="1" <?php echo $ukNationalInsuranceNumber == 1 ? 'checked' : ''; ?>>
@@ -221,7 +145,7 @@ $conn->close();
             </div>
 			<div class="form-group">
                 <label for="nationalInsuranceNumber">National Insurance Number:</label>
-                <input type="text" id="nationalInsuranceNumber" name="nationalInsuranceNumber" value="<?php echo htmlspecialchars($nationalInsuranceNumber); ?>">
+                <input type="text" id="nationalInsuranceNumber" name="nationalInsuranceNumber" placeholder="National Insurance Number" value="<?php echo htmlspecialchars($nationalInsuranceNumber); ?>">
             </div>
             <div class="form-group checkbox-label">
                 <input type="checkbox" id="passport" name="passport" value="1" <?php echo $passport == 1 ? 'checked' : ''; ?>>
@@ -229,7 +153,7 @@ $conn->close();
             </div>
             <div class="form-group">
                 <label for="countryOfPassportIssue">Country of Passport Issue:</label>
-                <input type="text" id="countryOfPassportIssue" name="countryOfPassportIssue" value="<?php echo htmlspecialchars($countryOfPassportIssue); ?>">
+                <input type="text" id="countryOfPassportIssue" name="countryOfPassportIssue" placeholder="Country of Passport Issue" value="<?php echo htmlspecialchars($countryOfPassportIssue); ?>">
             </div>
             <div class="form-group checkbox-label">
                 <input type="checkbox" id="drivingLicence" name="drivingLicence" value="1" <?php echo $drivingLicence == 1 ? 'checked' : ''; ?>>
@@ -237,11 +161,11 @@ $conn->close();
             </div>
             <div class="form-group">
                 <label for="countryOfDrivingLicenceIssue">Country of Driving Licence Issue:</label>
-                <input type="text" id="countryOfDrivingLicenceIssue" name="countryOfDrivingLicenceIssue" value="<?php echo htmlspecialchars($countryOfDrivingLicenceIssue); ?>">
+                <input type="text" id="countryOfDrivingLicenceIssue" name="countryOfDrivingLicenceIssue" placeholder="Country of Driving Licence Issue" value="<?php echo htmlspecialchars($countryOfDrivingLicenceIssue); ?>">
             </div>
             <div class="form-group">
                 <label for="drivingLicenceNumber">Driving Licence Number:</label>
-                <input type="text" id="drivingLicenceNumber" name="drivingLicenceNumber" value="<?php echo htmlspecialchars($drivingLicenceNumber); ?>">
+                <input type="text" id="drivingLicenceNumber" name="drivingLicenceNumber" placeholder="Driving Licence Number" value="<?php echo htmlspecialchars($drivingLicenceNumber); ?>">
             </div>
             <div class="button-container">
                 <button type="button" id="previousButton" onclick="window.location.href='PersonalDetails.php';">Previous</button>

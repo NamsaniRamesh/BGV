@@ -130,79 +130,10 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qualifications</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .sub-header {
-            font-size: 18px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .form-group {
-            margin-bottom: 20px;
-            width: 48%; /* Each field takes up nearly half of the container */
-            display: inline-block;
-            vertical-align: top;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="date"] {
-            width: calc(100% - 22px); /* Adjusting width to fit two fields in a row */
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-        }
-        .button-container button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button-container button:hover {
-            background-color: #45a049;
-        }
-		.message {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #dff0d8;
-            border: 1px solid #d6e9c6;
-            color: #3c763d;
-            border-radius: 3px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-        }
-    </style>
+    <link href="personaldetailsForm-style.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="container qualifications">
         <h2>Qualifications</h2>
 		<!-- Display the message if set -->
         <?php if(!empty($message)): ?>
@@ -236,6 +167,11 @@ $conn->close();
                     <input type="text" id="grade-awarded-1" name="grade-awarded-1" value="<?php echo htmlspecialchars($gradeAwarded1); ?>">
                 </div>
             </div>
+            <div class="row mb20">
+                    <div class="button-container">
+                    <button>+ Add Another Qualifications</button>
+                    </div>
+                </div>
             <div class="qualification-2">
                 <h3>Qualification 2:</h3>
                 <div class="form-group">
@@ -263,6 +199,11 @@ $conn->close();
                     <input type="text" id="grade-awarded-2" name="grade-awarded-2" value="<?php echo htmlspecialchars($gradeAwarded2); ?>">
                 </div>
             </div>
+            <div class="row mb20">
+                    <div class="button-container">
+                    <button>+ Add Another Qualifications</button>
+                    </div>
+                </div>
             <div class="button-container">
                 <button type="submit">Submit</button>
                 <button type="button" onclick="window.location.href='LogOut.php';">Next</button>
