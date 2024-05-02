@@ -85,6 +85,7 @@ input[type="date"] {
 .margintop {
     margin-top: 20px;
 }
+
 /** additionalpersonaldetails  page **/
 
 .additionalpersonaldetails form {
@@ -169,10 +170,10 @@ input[type="submit"]:hover,
     justify-content: center;
     align-items: center;
 }
-.button-top {
+/* .button-top {
     display: flex !important;
     justify-content: end !important;
-}
+} */
 /** additionalpersonaldetails  page **/
 /*** Address History page ***/
 .sub-header {
