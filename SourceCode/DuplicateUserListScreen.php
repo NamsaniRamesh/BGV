@@ -3,394 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Details</title>
+    <title>Website Layout</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            position: relative;
+            background-color: #f4f4f4;
         }
-        .header-container {
-            position: sticky;
-            top: 0;
-            background-color: Green;
-            z-index: 1;
-            color: white;
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
         }
-        .header-container h2 {
+
+        header img {
+            width: 150px;
+            margin-right: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
-            margin-top: 20px;
-            padding: 10px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 0px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            white-space: nowrap;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: green;
-            font-weight: bold;
-            color: white;
-        }
-        tr:hover {
-            background-color: #f5f5f5;
-            cursor: pointer;
-        }
-        .export-btn {
-            position: absolute;
-            top: 8px;
-            right: 20px;
-            padding: 0; 
-            background: White; 
-            border: none; 
-            cursor: pointer;
-        }
-        .export-btn:hover {
-            background-color: #45a049;
-        }
-        .search-container {
-            position: absolute;
-            top: 8px;
-            right: 180px;
-            padding: 0; 
-            cursor: pointer;
-        }
-        input[type="text"] {
-            padding: 8px;
-            width: 90%;
-            box-sizing: border-box;
-        }
-        .pagination {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .pagination a {
-            display: inline-block;
-            padding: 8px 16px;
+
+        nav a {
             text-decoration: none;
-            color: black;
-            border: 1px solid #ddd;
-            margin: 0 4px;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            background-color: #555;
+            transition: background-color 0.3s;
         }
-        .pagination a.active {
-            background-color: green;
-            color: white;
-            border: 1px solid green;
+
+        nav a:hover {
+            background-color: #777;
         }
-        .pagination a:hover:not(.active) {
-            background-color: #ddd;
+
+        // .container {
+            // margin: 20px auto;
+            // padding: 20px;
+            // width: 80%;
+            // max-width: 1200px;
+            // background-color: #fff;
+            // border-radius: 10px;
+            // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        // }
+
+        .logout-btn {
+            background-color: #f00;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #900;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="header-container">
-        <h2>User Details</h2>
-        <button class="export-btn" onclick="exportToExcel()">
-            <img src="ExporttoExcel.png" alt="Export to Excel" style="width: 32px; height: 32px;">
-        </button>
-        <div class="search-container">
-            <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for user...">
-        </div>
+    <header>
+        <img src="company_logo.png" alt="Company Logo">
+        <h1>Company Name</h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="loadPage('PersonalDetails.php')">Personal Details</a>
+        <a href="#" onclick="loadPage('AdditionalPersonalDetails.php')">Additional Personal Details</a>
+        <a href="#" onclick="loadPage('Page3.php')">Page 3</a>
+        <a href="#" onclick="loadPage('Page4.php')">Page 4</a>
+        <a href="#" onclick="loadPage('Page5.php')">Page 5</a>
+        <button class="logout-btn">Logout</button>
+    </nav>
+
+    <div class="container" id="pageContent">
+        <!-- Personal Details form will be loaded here -->
     </div>
-    <div style="overflow-x: auto;">
-        <table id="user-details-table">
-            <tr>
-                <th>Title</th>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Family Name</th>
-                <th>Date of Birth</th>
-                <th>Different Name Option</th>
-                <th>Previous First Name</th>
-                <th>Previous Middle Name</th>
-                <th>Previous Family Name</th>
-                <th>Date of Change</th>
-                <th>Town of Birth</th>
-                <th>Country of Birth</th>
-                <th>Nationality</th>
-                <th>Mother's Maiden Familyname</th>
-                <th>UK National Insurance Number</th>
-                <th>Passport</th>
-                <th>Country of Passport Issue</th>
-                <th>Driving Licence</th>
-                <th>Country of Driving Licence Issue</th>
-                <th>Driving Licence Number</th>
-                <th>Employer</th>
-                <th>Address</th>
-                <th>Phone Number</th>
-                <th>Your Job Title</th>
-                <th>Start Date</th>
-                <th>Leaving Date</th>
-                <th>Reason for Leaving</th>
-                <th>Referee Name</th>
-                <th>Referee Job Title</th>
-                <th>Referee Phone</th>
-                <th>Email</th>
-                <th>Can we contact this Employer</th>
-                <th>Current Address</th>
-                <th>Current Town/City</th>
-                <th>Current Postcode</th>
-                <th>Current Country</th>
-                <th>Moved In Date</th>
-                <th>Previous Address</th>
-                <th>Previous Town/City</th>
-                <th>Previous Postcode</th>
-                <th>Previous Country</th>
-                <th>Previous Moved In Date</th>
-            </tr>
-            <?php
-             $servername = "localhost:3306";
-            $username = "root";
-            $password = "";
-            $database = "bgverification";
 
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $database);
+    <footer>
+        &copy; 2024 Company Name. All rights reserved.
+    </footer>
 
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            // Pagination
-            $results_per_page = 10;
-            $sql_fetch_user = "SELECT *, usr.ID AS SingleUserID 
-                FROM userdetails usr 
-                LEFT JOIN additionalpersonaldetails dap ON usr.ID = dap.ID
-                LEFT JOIN employmenthistory emphst ON usr.id = emphst.UserID
-                LEFT JOIN addresshistory addhst ON usr.id = addhst.UserID";
-
-            // Apply search filter if search term is provided
-            if (isset($_GET['search']) && !empty($_GET['search'])) {
-                $search = $_GET['search'];
-                $sql_fetch_user .= " WHERE FirstName LIKE '%$search%' OR MiddleName LIKE '%$search%' OR FamilyName LIKE '%$search%'";
-            }
-
-            $result = $conn->query($sql_fetch_user);
-            $number_of_results = mysqli_num_rows($result);
-            $number_of_pages = ceil($number_of_results / $results_per_page);
-
-            if (!isset($_GET['page'])) {
-                $page = 1;
-            } else {
-                $page = $_GET['page'];
-            }
-
-            $this_page_first_result = ($page - 1) * $results_per_page;
-
-            $sql_fetch_user .= " LIMIT " . $this_page_first_result . ',' . $results_per_page;
-            $result = $conn->query($sql_fetch_user);
- // Loop through each user's details
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    // Extract user details from the current row
-                    $userId = $row['SingleUserID'];
-                    $title = $row['Title'];
-                    $firstName = $row['FirstName'];
-                    $middleName = $row['MiddleName'];
-                    $familyName = $row['FamilyName'];
-                    $dob = $row['DateofBirth'];
-                    $differentNameOption = $row['DifferentName'];
-                    $pFirstName = $row['PreviousFirstName'];
-                    $pMiddleName = $row['PreviousMiddleName'];
-                    $pFamilyName = $row['PreviousFamilyName'];
-                    $dateOfChange = $row['DateofChange'];
-                    $townOfBirth = $row['TownOfBirth'];
-                    $countryOfBirth = $row['CountryOfBirth'];
-                    $nationality = $row['Nationality'];
-                    $mothersMaidenFamilyname = $row['MothersMaidenFamilyName'];
-                    $ukNationalInsuranceNumber = $row['UKNationalInsuranceNumber'];
-                    $passport = $row['Passport'];
-                    $countryOfPassportIssue = $row['CountryOfPassportIssue'];
-                    $drivingLicence = $row['DrivingLicence'];
-                    $countryOfDrivingLicenceIssue = $row['CountryOfDrivingLicenceIssue'];
-                    $drivingLicenceNumber = $row['DrivingLicenceNumber'];
-                    $employer = $row['Employer'];
-                    $address = $row['Address'];
-                    $phone = $row['PhoneNumber'];
-                    $jobTitle = $row['YourJobTitle'];
-                    $startDate = $row['StartDate'];
-                    $leavingDate = $row['LeavingDate'];
-                    $reasonLeaving = $row['ReasonforLeaving'];
-                    $refereeName = $row['RefereeName'];
-                    $refereeJobTitle = $row['RefereeJobTitle'];
-                    $refereeContact = $row['RefereePhone'];
-                    $email = $row['Email'];
-                    $canContact = $row['CanwecontactthisEmployer'];
-                    $currentAddress = $row['CurrentAddress'];
-                    $currentTownCity = $row['CurrentTownCity'];
-                    $currentPostcode = $row['CurrentPostCode'];
-                    $currentCountry = $row['CurrentCountry'];
-                    $movedInDate = $row['MovedinDate'];
-                    $previousAddress = $row['PreviousAddress'];
-                    $previousTownCity = $row['PreviousTownCity'];
-                    $previousPostcode = $row['PreviousPostCode'];
-                    $previousCountry = $row['PreviousCountry'];
-                    $previousMovedInDate = $row['PreviousMovedinDate'];
-
-                    // Display user details in a table row with navigation to PersonalDetails.php
-                    echo "<tr onclick=\"window.location='PersonalDetails.php?id=$userId';\">";
-                    echo "<td>$title</td>";
-                    echo "<td>$firstName</td>";
-                    echo "<td>$middleName</td>";
-                    echo "<td>$familyName</td>";
-                    echo "<td>$dob</td>";
-                    echo "<td>$differentNameOption</td>";
-                    echo "<td>$pFirstName</td>";
-                    echo "<td>$pMiddleName</td>";
-                    echo "<td>$pFamilyName</td>";
-                    echo "<td>$dateOfChange</td>";
-                    echo "<td>$townOfBirth</td>";
-                    echo "<td>$countryOfBirth</td>";
-                    echo "<td>$nationality</td>";
-                    echo "<td>$mothersMaidenFamilyname</td>";
-                    echo "<td>$ukNationalInsuranceNumber</td>";
-                    echo "<td>$passport</td>";
-                    echo "<td>$countryOfPassportIssue</td>";
-                    echo "<td>$drivingLicence</td>";
-                    echo "<td>$countryOfDrivingLicenceIssue</td>";
-                    echo "<td>$drivingLicenceNumber</td>";
-                    echo "<td>$employer</td>";
-                    echo "<td>$address</td>";
-                    echo "<td>$phone</td>";
-                    echo "<td>$jobTitle</td>";
-                    echo "<td>$startDate</td>";
-                    echo "<td>$leavingDate</td>";
-                    echo "<td>$reasonLeaving</td>";
-                    echo "<td>$refereeName</td>";
-                    echo "<td>$refereeJobTitle</td>";
-                    echo "<td>$refereeContact</td>";
-                    echo "<td>$email</td>";
-                    echo "<td>$canContact</td>";
-                    echo "<td>$currentAddress</td>";
-                    echo "<td>$currentTownCity</td>";
-                    echo "<td>$currentPostcode</td>";
-                    echo "<td>$currentCountry</td>";
-                    echo "<td>$movedInDate</td>";
-                    echo "<td>$previousAddress</td>";
-                    echo "<td>$previousTownCity</td>";
-                    echo "<td>$previousPostcode</td>";
-                    echo "<td>$previousCountry</td>";
-                    echo "<td>$previousMovedInDate</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo "<tr><td colspan='44'>No records found.</td></tr>";
-            }
-
-            // Close connection
-            $conn->close();
-            ?>
-        </table>
-						<div class="pagination">
-    <?php
-    echo "Total records: " . $number_of_results . "<br>";
-
-    // Calculate the start and end page numbers based on the current page
-    if ($number_of_pages <= 5) {
-        $start_page = 1;
-        $end_page = $number_of_pages;
-    } elseif ($page <= 3) {
-        $start_page = 1;
-        $end_page = 5;
-    } elseif ($page >= $number_of_pages - 2) {
-        $start_page = $number_of_pages - 4;
-        $end_page = $number_of_pages;
-    } else {
-        $start_page = $page - 2;
-        $end_page = $page + 2;
-    }
-
-    // Display "Previous" button if not on the first page
-    if ($page > 1) {
-        echo '<a href="DuplicateUserListScreen.php?page=' . ($page - 5) . '">Previous</a>';
-    }
-
-    // Adjust start page if "Next" button is clicked directly
-    if ($page > 5) {
-        $start_page = $page - 1;
-        $end_page = min($page + 3, $number_of_pages);
-    }
-
-    // Display pagination buttons
-    for ($i = $start_page; $i <= $end_page; $i++) {
-        echo '<a href="DuplicateUserListScreen.php?page=' . $i . '">' . $i . '</a> ';
-    }
-
-    // Display "Next" button if not on the last page
-    if ($page < $number_of_pages) {
-        echo '<a href="DuplicateUserListScreen.php?page=' . ($page + 5) . '">Next</a>';
-    }
-    ?>
-</div>
-
-
-       </div>
-    </div>
     <script>
-        function exportToExcel() {
-            // Reference the table
-            var table = document.getElementById("user-details-table");
+        // Load PersonalDetails.php by default
+        window.onload = function() {
+            loadPage('PersonalDetails.php');
+        };
 
-            // Create a new Excel file content
-            var excelContent = '';
-
-            // Add table headers
-            for (var i = 0; i < table.rows[0].cells.length; i++) {
-                excelContent += table.rows[0].cells[i].innerHTML + '\t';
-            }
-            excelContent += '\n';
-
-            // Add table data
-            for (var i = 1; i < table.rows.length; i++) {
-                for (var j = 0; j < table.rows[i].cells.length; j++) {
-                    excelContent += table.rows[i].cells[j].innerHTML + '\t';
+        function loadPage(page) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("pageContent").innerHTML = this.responseText;
                 }
-                excelContent += '\n';
-            }
-
-            // Create a Blob containing the Excel file data
-            var blob = new Blob([excelContent], { type: 'application/vnd.ms-excel' });
-
-            // Create a link element to download the Excel file
-            var link = document.createElement('a');
-            link.href = window.URL.createObjectURL(blob);
-            link.download = 'user_details.xls';
-            link.click();
-        }
-        function searchTable() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("searchInput");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("user-details-table");
-            tr = table.getElementsByTagName("tr");
-
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                tds = tr[i].getElementsByTagName("td");
-                for (var j = 0; j < tds.length; j++) {
-                    td = tds[j];
-                    if (td) {
-                        txtValue = td.textContent || td.innerText;
-                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                            tr[i].style.display = "";
-                            break;
-                        } else {
-                            tr[i].style.display = "none";
-                        }
-                    }
-                }
-            }
+            };
+            xhttp.open("GET", page, true);
+            xhttp.send();
         }
     </script>
 </body>

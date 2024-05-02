@@ -2,16 +2,16 @@
 session_start();
 
 // Check if logout button is clicked
-if (isset($_POST['logout'])) {
+
     // Destroy session
     session_destroy();
     // Redirect to login page
     header("Location: LoginPage.php");
     exit; // Stop further execution
-}
+
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,13 +21,13 @@ if (isset($_POST['logout'])) {
 </head>
 <body>
     <div style="text-align: center;">
-        <!-- Logout button -->
+        Logout button 
 <div><h4>Click to LogOut button Redirect to Login page</h4></div>
         <form method="post">
             
             <button type="submit" name="logout" class="logout">Log Out</button>
         </form>
     </div>
-    <!-- Your page content here -->
+    Your page content here 
 </body>
-</html>
+</html> -->
