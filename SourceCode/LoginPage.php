@@ -40,11 +40,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             exit; // Prevent further execution
         }
+        else{
+            $message = "Please Enter Valid User Id/Password";
+        }
     }
+    else{
+        $message = "Please Enter Valid User Id/Password";
+    }
+    
 
     // Invalid username or password, redirect back to login page with error message
-    $_SESSION['message'] = "Invalid username or password";
-    header("Location: LoginPage.php");
+    // $message = "Please Enter Valid User Id/Password";
+    // header("Location: LoginPage.php");
 
     // Close connection
     $conn->close();
@@ -62,16 +69,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <?php
-        // Display error message if present
-        if (isset($_SESSION['message'])) {
-            echo '<p class="error-message">' . $_SESSION['message'] . '</p>';
-            unset($_SESSION['message']); // Clear the message after displaying it's
-        }
-        ?>
+        <?php if(!empty($message)): ?>
+            <div class="message" id = "successMessage"><?php echo $message; ?></div>
+        <?php endif; ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
-                <label for="username"><img src="UserNameIcon.png" alt="Username icon"> Username:</label>
+                <label for="username"><img src="UserNameIcon.png" alt="Username icon"> User Id:</label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="form-group">
@@ -82,6 +85,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="submit" value="Login">
             </div>
         </form>
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {            
+			var messageDiv = document.getElementById('successMessage');            
+			 // Hide message after 5 seconds
+			setTimeout(function() {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        });
+    </script>
     </div>
 </body>
 </html>

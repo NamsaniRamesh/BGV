@@ -88,6 +88,18 @@ color: white;
 		font-size: 16px; /* Adjusted font size */
 		border-radius: 4px;
         }
+        .logout-container {
+        position: absolute;
+		top: 8px;
+		right: 410px;
+		padding: 7px 12px; /* Increased padding */
+		background-color: #4caf50; /* Background color */
+		border: none;
+		cursor: pointer;
+		color: white; /* Text color */
+		font-size: 16px; /* Adjusted font size */
+		border-radius: 4px;
+        }
         input[type="text"] {
             padding: 8px;
             width: 90%;
@@ -104,6 +116,9 @@ color: white;
         </div>
 		<div class="user-container">
          <button type="button" onclick="window.location.href='CreateUser.php';">Create user</button>
+        </div>
+        <div class="logout-container">
+         <button type="button" onclick="window.location.href='LogOut.php';">LogOut</button>
         </div>
 	</div>
     <div style="overflow-x: auto;">

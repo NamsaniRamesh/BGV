@@ -55,11 +55,101 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create User</title>
     <style>
+        
+
+        header {
+            /* background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            position: fixed; */
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+        }
+
+        header img {
+            width: 40px;
+            margin-right: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        nav {
+            /* background-color: #444;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center; */
+            background-color: #444;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            top: 8.9%;
+            width: 100%;            
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            background-color: #555;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #777;
+        }
+
+         .container {
+             margin: 20px auto;
+             padding: 100px;
+             width: 82%;
+             max-width: 1200px;
+             background-color: #fff;
+             border-radius: 10px;
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);             
+         }
+
+        .logout-btn {
+            background-color: #f00;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #900;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
+            padding: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -76,10 +166,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         h2 {
             text-align: center;
             margin-bottom: 20px; /* Added margin */
+            margin-top: 80px; 
         }
         label {
             display: block;
-            margin-bottom: 8px; /* Reduced margin */
+            margin-bottom: 0px; /* Reduced margin */
+            margin-top: 1px;
         }
         input[type="text"],
         input[type="email"],
@@ -125,6 +217,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
+<header>
+        <img src="Accenture.Jpg" alt="Company Logo">
+        <h1>Background Verification</h1>
+    </header>
+    <nav>
+        <a href="#" onclick="window.location.href='UserList.php';">User List</a>        
+        <button class="logout-btn" onclick="window.location.href='LogOut.php';">Logout</button>
+    </nav>
     <form action="Createuser.php" method="POST">
         <?php if(!empty($message)): ?>
             <div class="message" id="successMessage"><?php echo $message; ?></div>
@@ -138,9 +238,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <label for="role">Role:</label>
         <input type="text" id="role" name="role" required> <!-- Changed input type to "text" -->
-
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" name="companyName" required>
         <input type="submit" value="Create User">
     </form>
+    <footer>
+        &copy; 2024 Company Name. All rights reserved.
+    </footer>
 </body>
 </html>
 
