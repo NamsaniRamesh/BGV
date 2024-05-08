@@ -27,12 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
 	$role = $_POST["role"];
+    $companyName = $_POST["companyName"];
 
     // Hash the password (for security)
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare SQL statement to insert user data into the database
-            $sql_insert = "INSERT INTO userdetails (Email, Password, Role) VALUES ('$email', '$hashed_password','$role')";
+            $sql_insert = "INSERT INTO userdetails (Email, Password, Role, CompanyName) VALUES ('$email', '$hashed_password','$role','$companyName')";
 	
 			if ($conn->query($sql_insert) === TRUE) {
                 $message = "User Created Successfully";               
@@ -112,15 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background-color: #777;
         }
 
-         .container {
-             margin: 20px auto;
-             padding: 100px;
-             width: 82%;
-             max-width: 1200px;
-             background-color: #fff;
-             border-radius: 10px;
-             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);             
-         }
+         
 
         .logout-btn {
             background-color: #f00;
@@ -166,12 +159,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         h2 {
             text-align: center;
             margin-bottom: 20px; /* Added margin */
-            margin-top: 80px; 
+            margin-top: -5px; 
         }
         label {
             display: block;
             margin-bottom: 0px; /* Reduced margin */
-            margin-top: 1px;
+            
         }
         input[type="text"],
         input[type="email"],
@@ -237,11 +230,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" id="password" name="password" required>
         
         <label for="role">Role:</label>
-        <input type="text" id="role" name="role" required> <!-- Changed input type to "text" -->
+        <input type="text" id="role" name="role"> <!-- Changed input type to "text" -->
         <label for="companyName">Company Name:</label>
         <input type="text" id="companyName" name="companyName" required>
         <input type="submit" value="Create User">
     </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {            
+			var messageDiv = document.getElementById('successMessage');            
+			 // Hide message after 5 seconds
+			setTimeout(function() {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        });
+    </script>
     <footer>
         &copy; 2024 Company Name. All rights reserved.
     </footer>
