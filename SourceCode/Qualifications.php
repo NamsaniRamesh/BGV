@@ -31,8 +31,13 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }// declaring variables
-$uniCollege1 = $uniCollege2 = $startDate1 = $startDate2 = $leavingDate1 = $leavingDate2 = "";
-$courseStudied1 = $courseStudied2 = $qualification1 = $qualification2 = $gradeAwarded1 = $gradeAwarded2 = "";
+$uniCollege1 = $startDate1 = $leavingDate1 = $courseStudied1 = $qualification1 = $gradeAwarded1 = "";
+$uniCollege2 = $startDate2 = $leavingDate2 = $courseStudied2 = $qualification2 = $gradeAwarded2 = "";
+$uniCollege3 = $startDate3 = $leavingDate3 = $courseStudied3 = $qualification3 = $gradeAwarded3 = "";
+$uniCollege4 = $startDate4 = $leavingDate4 = $courseStudied4 = $qualification4 = $gradeAwarded4 = "";
+
+
+
 // Check if the user already has qualifications
 $sql_check = "SELECT * FROM qualifications WHERE UserId = $userId"; 
 $result = $conn->query($sql_check);
@@ -55,11 +60,36 @@ if ($result->num_rows > 0) {
         $qualification2 = $conn->real_escape_string($_POST['qualification-2']);
         $gradeAwarded2 = $conn->real_escape_string($_POST['grade-awarded-2']);
 
+        $uniCollege3 = $conn->real_escape_string($_POST['uni-college-3']);
+        $startDate3 = $conn->real_escape_string($_POST['start-date-3']);
+        $leavingDate3 = $conn->real_escape_string($_POST['leaving-date-3']);
+        $courseStudied3 = $conn->real_escape_string($_POST['course-studied-3']);
+        $qualification3 = $conn->real_escape_string($_POST['qualification-3']);
+        $gradeAwarded3 = $conn->real_escape_string($_POST['grade-awarded-3']);
+
+        $uniCollege4 = $conn->real_escape_string($_POST['uni-college-4']);
+        $startDate4 = $conn->real_escape_string($_POST['start-date-4']);
+        $leavingDate4 = $conn->real_escape_string($_POST['leaving-date-4']);
+        $courseStudied4 = $conn->real_escape_string($_POST['course-studied-4']);
+        $qualification4 = $conn->real_escape_string($_POST['qualification-4']);
+        $gradeAwarded4 = $conn->real_escape_string($_POST['grade-awarded-4']);
+
         // SQL query to update existing qualifications
         $sql_update = "UPDATE qualifications 
-                        SET UniCollege = '$uniCollege1', StartDate = '$startDate1', LeavingDate = '$leavingDate1', 			CourseStudied = '$courseStudied1',Qualification = '$qualification1',  						GradeAwarded = '$gradeAwarded1',UniCollegeOne = '$uniCollege2', StartDateOne = '$startDate2', 
+                        SET UniCollege = '$uniCollege1', StartDate = '$startDate1', LeavingDate = '$leavingDate1', 	
+                        CourseStudied = '$courseStudied1',Qualification = '$qualification1', GradeAwarded = '$gradeAwarded1',
+                        UniCollegeOne = '$uniCollege2', StartDateOne = '$startDate2', 
                         LeavingDateOne = '$leavingDate2', CourseStudiedOne = '$courseStudied2', 
-			QualificationOne = '$qualification2',GradeAwardedOne = '$gradeAwarded2'";
+			            QualificationOne = '$qualification2',GradeAwardedOne = '$gradeAwarded2',
+
+                        UniCollege2 = '$uniCollege3', StartDate2 = '$startDate3', 
+                        LeavingDate2 = '$leavingDate3', CourseStudied2 = '$courseStudied3', 
+			            Qualification2 = '$qualification3',GradeAwarded2 = '$gradeAwarded3',
+                        
+                        UniCollege3 = '$uniCollege4', StartDate3 = '$startDate4', 
+                        LeavingDate3 = '$leavingDate4', CourseStudied3 = '$courseStudied4', 
+			            Qualification3 = '$qualification4',GradeAwarded3 = '$gradeAwarded4'";
+                        
 
         // Execute the update query
         if ($conn->query($sql_update) === TRUE) {
@@ -86,9 +116,30 @@ if ($result->num_rows > 0) {
         $qualification2 = $conn->real_escape_string($_POST['qualification-2']);
         $gradeAwarded2 = $conn->real_escape_string($_POST['grade-awarded-2']);
 
+        $uniCollege3 = $conn->real_escape_string($_POST['uni-college-3']);
+        $startDate3 = $conn->real_escape_string($_POST['start-date-3']);
+        $leavingDate3 = $conn->real_escape_string($_POST['leaving-date-3']);
+        $courseStudied3 = $conn->real_escape_string($_POST['course-studied-3']);
+        $qualification3 = $conn->real_escape_string($_POST['qualification-3']);
+        $gradeAwarded3 = $conn->real_escape_string($_POST['grade-awarded-3']);
+
+        $uniCollege4 = $conn->real_escape_string($_POST['uni-college-4']);
+        $startDate4 = $conn->real_escape_string($_POST['start-date-4']);
+        $leavingDate4 = $conn->real_escape_string($_POST['leaving-date-4']);
+        $courseStudied4 = $conn->real_escape_string($_POST['course-studied-4']);
+        $qualification4 = $conn->real_escape_string($_POST['qualification-4']);
+        $gradeAwarded4 = $conn->real_escape_string($_POST['grade-awarded-4']);
+
         // SQL query to insert new qualifications
-        $sql_insert = "INSERT INTO qualifications (UserId, UniCollege, StartDate, LeavingDate, CourseStudied,    	Qualification, GradeAwarded,UniCollegeOne, StartDateOne, LeavingDateOne, CourseStudiedOne, QualificationOne, 	GradeAwardedOne)
-                        VALUES ($userId, '$uniCollege1', '$startDate1', '$leavingDate1', '$courseStudied1', '$qualification1', '$gradeAwarded1','$uniCollege2', '$startDate2', '$leavingDate2', '$courseStudied2', '$qualification2', '$gradeAwarded2')";
+        $sql_insert = "INSERT INTO qualifications (UserId, UniCollege, StartDate, LeavingDate, CourseStudied, 
+        Qualification, GradeAwarded,
+        UniCollegeOne, StartDateOne, LeavingDateOne, CourseStudiedOne, QualificationOne, 	GradeAwardedOne,
+        UniCollege2, StartDate2, LeavingDate2, CourseStudied2, Qualification2, 	GradeAwarded2,
+        UniCollege3, StartDate3, LeavingDate3, CourseStudied3, Qualification3, 	GradeAwarded3)
+        VALUES ($userId, '$uniCollege1', '$startDate1', '$leavingDate1', '$courseStudied1', '$qualification1', '$gradeAwarded1',
+        '$uniCollege2', '$startDate2', '$leavingDate2', '$courseStudied2', '$qualification2', '$gradeAwarded2',
+        '$uniCollege3','$startDate3', '$leavingDate3', '$courseStudied3', '$qualification3', '$gradeAwarded3',
+        '$uniCollege3','$startDate4', '$leavingDate4', '$courseStudied4', '$qualification4', '$gradeAwarded4')";
 
         // Execute the insert query
         if ($conn->multi_query($sql_insert) === TRUE) {
@@ -116,7 +167,21 @@ if ($result->num_rows > 0) {
     $leavingDate2 = $row['LeavingDateOne'];
     $courseStudied2 = $row['CourseStudiedOne'];
     $qualification2 = $row['QualificationOne'];
-    $gradeAwarded2 = $row['GradeAwardedOne'];    
+    $gradeAwarded2 = $row['GradeAwardedOne']; 
+    
+    $uniCollege3 = $row['UniCollege2'];
+    $startDate3 = $row['StartDate2'];
+    $leavingDate3 = $row['LeavingDate2'];
+    $courseStudied3 = $row['CourseStudied2'];
+    $qualification3 = $row['Qualification2'];
+    $gradeAwarded3 = $row['GradeAwarded2']; 
+
+    $uniCollege4 = $row['UniCollege3'];
+    $startDate4 = $row['StartDate3'];
+    $leavingDate4 = $row['LeavingDate3'];
+    $courseStudied4 = $row['CourseStudied3'];
+    $qualification4 = $row['Qualification3'];
+    $gradeAwarded4 = $row['GradeAwarded3']; 
 } 
 //destroy the session
 
@@ -179,12 +244,7 @@ $conn->close();
                     <label for="grade-awarded-1">Grade Awarded:</label>
                     <input type="text" id="grade-awarded-1" name="grade-awarded-1" value="<?php echo htmlspecialchars($gradeAwarded1); ?>">
                 </div>
-            </div>
-            <div class="row mb20">
-                    <div class="button-container">
-                    <button> + </button>
-                    </div>
-                </div>
+            </div>            
             <div class="qualification-2">
                 <h3>Qualification 2:</h3>
                 <div class="form-group">
@@ -212,16 +272,64 @@ $conn->close();
                     <input type="text" id="grade-awarded-2" name="grade-awarded-2" value="<?php echo htmlspecialchars($gradeAwarded2); ?>">
                 </div>
             </div>
-            <div class="row mb20">
-                    <div class="button-container">
-                    <button> + </button>
-                    </div>
+            <div class="qualification-2">
+                <h3>Qualification 3:</h3>
+                <div class="form-group">
+                    <label for="uni-college-3">University / College:</label>
+                    <input type="text" id="uni-college-3" name="uni-college-3" value="<?php echo htmlspecialchars($uniCollege3); ?>">
                 </div>
+                <div class="form-group">
+                    <label for="start-date-3">Start Date:</label>
+                    <input type="date" id="start-date-3" name="start-date-3" value="<?php echo htmlspecialchars($startDate3); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="leaving-date-3">Leaving Date:</label>
+                    <input type="date" id="leaving-date-3" name="leaving-date-3" value="<?php echo htmlspecialchars($leavingDate3); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="course-studied-3">Course Studied:</label>
+                    <input type="text" id="course-studied-3" name="course-studied-3" value="<?php echo htmlspecialchars($courseStudied3); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="qualification-3">Qualification:</label>
+                    <input type="text" id="qualification-3" name="qualification-3" value="<?php echo htmlspecialchars($qualification3); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="grade-awarded-3">Grade Awarded:</label>
+                    <input type="text" id="grade-awarded-3" name="grade-awarded-3" value="<?php echo htmlspecialchars($gradeAwarded3); ?>">
+                </div>
+            </div>
+            <div class="qualification-2">
+                <h3>Qualification 4:</h3>
+                <div class="form-group">
+                    <label for="uni-college-4">University / College:</label>
+                    <input type="text" id="uni-college-4" name="uni-college-4" value="<?php echo htmlspecialchars($uniCollege4); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="start-date-4">Start Date:</label>
+                    <input type="date" id="start-date-4" name="start-date-4" value="<?php echo htmlspecialchars($startDate4); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="leaving-date-4">Leaving Date:</label>
+                    <input type="date" id="leaving-date-4" name="leaving-date-4" value="<?php echo htmlspecialchars($leavingDate4); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="course-studied-4">Course Studied:</label>
+                    <input type="text" id="course-studied-4" name="course-studied-4" value="<?php echo htmlspecialchars($courseStudied4); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="qualification-4">Qualification:</label>
+                    <input type="text" id="qualification-4" name="qualification-4" value="<?php echo htmlspecialchars($qualification4); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="grade-awarded-4">Grade Awarded:</label>
+                    <input type="text" id="grade-awarded-4" name="grade-awarded-4" value="<?php echo htmlspecialchars($gradeAwarded4); ?>">
+                </div>
+            </div>
             <div class="button-container">
                 <button type="submit">Submit</button>
                 <div>
                 <button type="button" id="previousButton" onclick="window.location.href='EmploymentHistory.php';">Previous</button>
-                <button type="button" id ="nextButton" onclick="window.location.href='LogOut.php';">Next</button>
                 </div>
             </div>
         </form>
