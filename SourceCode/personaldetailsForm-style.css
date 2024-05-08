@@ -4,7 +4,7 @@ body {
     padding: 0;
     background-color: #f5f5f5;
 }
-.container {
+/* .container {
     max-width: 800px;
     margin: 50px auto;
     background-color: #fff;
@@ -12,7 +12,102 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+} */
+
+/* Latest Css  Version */
+header {
+    /* background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed; */
+    background-color: #0a0a23;  /* 333 to 0a0a23 */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
+
+header img {
+    width: 40px;
+    margin-right: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+nav {
+    background-color: #fff; /* 444 to FFF */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    /* position: fixed; */
+    top: 10%;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 5px;
+    margin: 0 25px;
+    border-radius: 5px;
+    background-color: #0a0a23; /* changed 555 to 0a0a23 */
+    transition: background-color 0.3s;
+    flex-grow: 1;
+    max-width: calc(100% / 5 - 60px); /* Adjust according to the number of links */
+}
+
+nav a:hover {
+    background-color: #002ead;
+}
+
+ .container {
+     margin: 20px auto;
+     padding: 80px;
+     width: 86%;
+     max-width: 1200px;
+     background-color: #fff;
+     border-radius: 10px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+.logout-btn {
+    background-color: #0a0a23; /* #f00 to 0a0a23*/
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+.logout-btn:hover {
+    background-color: #002ead; /* 900 to 002ead */
+}
+
+footer {
+    background-color: #0a0a23; /* 333 to 0a0a23 */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+}
+/* latest Css Version */
 h2 {
     margin-bottom: 20px;
     color: #F29100;
@@ -29,6 +124,7 @@ form {
 label {
     margin-bottom: 5px;
     font-weight: bold;
+
 }
 input[type="text"],
 input[type="email"],
@@ -58,6 +154,12 @@ input[type="date"] {
 .buttons button[type="submit"] {
     background-color: #4caf50;
     color: #fff;
+}
+.perviousabove {
+    display: flex;
+  flex-direction: column;
+  width: 80%;
+
 }
 .previous-names-header {
     font-weight: bold;
@@ -144,7 +246,7 @@ input[type="date"] {
 #nextButton,
 #previousButton {
     width: auto; /* Adjusted width */
-    padding: 8px; /* Decreased padding */
+    padding: 10px; /* Decreased padding */
     border: none;
     border-radius: 3px;
     background-color: #4caf50;
@@ -153,7 +255,7 @@ input[type="date"] {
     transition: background-color 0.3s;
     font-size: 14px; /* Decreased font size */
     margin-left: 5px; /* Added margin to separate buttons */
-    padding-right: 10px;
+
 }
 input[type="submit"]:hover,
 #nextButton:hover {
@@ -372,9 +474,28 @@ input[type="submit"]:hover,
     align-items: center;
 }
 /** Qualifications page **/
-
+/* Tablet Version */
+@media screen and (min-device-width: 767px) and (max-device-width: 1000px) { 
+    nav a {
+    
+        margin: 0 5px;
+        flex-grow: 4;
+        max-width: calc(100% / 5 - 10px); /* Adjust according to the number of links */
+        font-size: 12px;
+    }
+    .container {
+        margin: 20px auto;
+        padding: 40px;
+    }
+}
+/* Tablet Version */
 /* Mobile  version */
-@media screen and (min-device-width: 375px) and (max-device-width: 768px) { 
+@media screen and (min-device-width: 375px) and (max-device-width: 768px) {
+    .container {
+        margin: 20px 10px;
+        padding: 40px;
+        width: auto;
+    } 
     .form-group {
         display: flex;
         width: calc(100% - 10px);
@@ -422,5 +543,42 @@ input[type="submit"]:hover,
         vertical-align: top;
     }
     /** Qualifications page **/
+    /* nav bar */
+    nav {
+        background-color: #fff; /* 444 to FFF */
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+        /* position: fixed; */
+        top: 10%;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    nav a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: #0a0a23; /* changed 555 to 0a0a23 */
+        transition: background-color 0.3s;
+        flex-grow: 4;
+        font-size: 12px;
+        max-width: 100%; /* Adjust according to the number of links */
+    }
+        /* nav bar */
+        /* header */
+        header {
+          align-items: center;
+        }
+        header img {
+            width: 40px;          
+            margin-right: 20px;          
+            margin-left: 30px;
+        }
+        /* header */
 }
 /* Mobile  version */
