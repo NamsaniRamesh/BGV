@@ -13,112 +13,23 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            position: relative;
-        }
-        .header-container {
-            position: sticky;
-            top: 0;
-            background-color: Green;
-            z-index: 1;
-color: white;
-        }
-        .header-container h2 {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            white-space: nowrap;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: green;//#f2f2f2
-            font-weight: bold;
-            color: white;//#333
-        }
-        tr:hover {
-            background-color: #f5f5f5;
-            cursor: pointer;
-        }
-        .export-btn {
-        position: absolute;
-        top: 8px;
-        right: 20px;
-        padding: 0; /* Remove padding */
-        background: White; /* Remove background color */
-        border: none; /* Remove border */
-        cursor: pointer;
-}
-        .export-btn:hover {
-            background-color: #45a049;
-        }
-		.search-container {
-            position: absolute;
-        top: 8px;
-        right: 80px;
-        padding: 0; /* Remove padding */
-        //background: White; /* Remove background color */
-        border: none; /* Remove border */
-        cursor: pointer;
-        }
-		.user-container {
-        position: absolute;
-		top: 8px;
-		right: 280px;
-		padding: 7px 12px; /* Increased padding */
-		background-color: #4caf50; /* Background color */
-		border: none;
-		cursor: pointer;
-		color: white; /* Text color */
-		font-size: 16px; /* Adjusted font size */
-		border-radius: 4px;
-        }
-        .logout-container {
-        position: absolute;
-		top: 8px;
-		right: 410px;
-		padding: 7px 12px; /* Increased padding */
-		background-color: #4caf50; /* Background color */
-		border: none;
-		cursor: pointer;
-		color: white; /* Text color */
-		font-size: 16px; /* Adjusted font size */
-		border-radius: 4px;
-        }
-        input[type="text"] {
-            padding: 8px;
-            width: 90%;
-            box-sizing: border-box;
-        }
-    </style>
+    <link href="styleuserlist.css" rel="stylesheet">
 </head>
 <body>
     <div class="header-container">
-        <h2>User Details</h2>
-         <button class="export-btn" onclick="exportToExcel()"><img src="ExporttoExcel.png" alt="Export to Excel"   	style="width: 32px; height: 32px;">   	</button>
-		<div class="search-container">
-         <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for user...">
-        </div>
+        <h2>User Details</h2>        
+		
 		<div class="user-container">
          <button type="button" onclick="window.location.href='CreateUser.php';">Create user</button>
         </div>
         <div class="logout-container">
          <button type="button" onclick="window.location.href='LogOut.php';">LogOut</button>
+        </div>
+        <div class="search-container">
+         <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for user...">
+        </div>
+        <div>
+        <button class="export-btn" onclick="exportToExcel()"><img src="ExporttoExcel.png" alt="Export to Excel"   	style="width: 32px; height: 32px;">   	</button>
         </div>
 	</div>
     <div style="overflow-x: auto;">
