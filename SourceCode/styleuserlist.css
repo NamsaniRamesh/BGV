@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.header-container {
+    position: sticky;
+    top: 0;
+    background-color: Green;
+    z-index: 1;
+color: white;
+display: grid;
+grid-template-columns: 8fr 1.5fr 1fr 2fr 1fr;
+align-items: center;
+}
+.header-container h2 {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: green; /* #f2f2f2 */
+    font-weight: bold;
+    color: white; /* #333 */
+}
+tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+.export-btn {
+/* position: absolute;
+top: 8px;
+right: 20px; */
+padding: 0; /* Remove padding */
+background: White; /* Remove background color */
+border: none; /* Remove border */
+cursor: pointer;
+}
+.export-btn:hover {
+    background-color: #45a049;
+}
+.search-container {
+    /* position: absolute;
+top: 8px;
+right: 80px; */
+padding: 0; /* Remove padding */
+ /* background: White; Remove background color */
+border: none; /* Remove border */
+cursor: pointer;
+}
+.user-container {
+/* position: absolute;
+top: 8px;
+right: 280px; */
+/* padding: 7px 12px;  Increased padding 
+background-color: #4caf50;  Background color 
+border: none;
+cursor: pointer;
+color: white;  Text color 
+font-size: 16px;  Adjusted font size 
+border-radius: 4px; */
+}
+.user-container button, .logout-container button  { 
+    background-color: #4caf50;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-container {
+/* position: absolute;
+top: 8px;
+right: 410px; */
+/* padding: 7px 12px; Increased padding 
+background-color: #4caf50;  Background color 
+border: none;
+cursor: pointer;
+color: white;  Text color 
+font-size: 16px;  Adjusted font size 
+border-radius: 4px; */
+}
+input[type="text"] {
+    padding: 8px;
+    width: 90%;
+    box-sizing: border-box;
+}
+@media screen and (min-device-width: 767px) and (max-device-width: 1000px) { 
+    .header-container {
+        display: grid;
+  grid-template-columns: 4fr 1.5fr 1fr 2fr 1fr;
+  align-items: center;
+    }
+}
+@media screen and (min-device-width: 375px) and (max-device-width: 768px) {
+    .header-container {
+        display: grid;
+  grid-template-columns: 5fr 4fr auto;
+  align-items: center;
+  padding-right: 5px;
+}
+.export-btn, .search-container {
+    margin-bottom: 10px;
+    margin-left: 10px;
+} 
+    
+}
